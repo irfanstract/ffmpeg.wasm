@@ -7,8 +7,8 @@ ARG EXTRA_LDFLAGS
 ARG FFMPEG_ST
 ARG FFMPEG_MT
 ENV INSTALL_DIR=/opt
-# We cannot upgrade to n6.0 as ffmpeg bin only supports multithread at the moment.
-ENV FFMPEG_VERSION=n6.1.4
+# We cannot upgrade beyond n5.* as ffmpeg build has started, as of n6.0, limiting itself to multithreading, and remains so rn. "fftools/ffmpeg: depend on threads. ffmpeg will be switched to a fully threaded architecture, starting with muxers." https://github.com/FFmpeg/FFmpeg/commit/760ce4bc0bd11f74f0851c0a662dd5cae888df83
+ENV FFMPEG_VERSION=n5.1.8
 ENV CFLAGS="-I$INSTALL_DIR/include $CFLAGS $EXTRA_CFLAGS"
 ENV CXXFLAGS="$CFLAGS"
 ENV LDFLAGS="-L$INSTALL_DIR/lib $LDFLAGS $CFLAGS $EXTRA_LDFLAGS"
